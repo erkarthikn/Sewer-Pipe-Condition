@@ -1,26 +1,19 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
 from sklearn.ensemble import RandomForestClassifier
-
 from sklearn.model_selection import train_test_split
-
 from sklearn.multiclass import OneVsRestClassifier
-
 from imblearn.over_sampling import SMOTE, ADASYN
 from collections import Counter
 from imblearn.over_sampling import RandomOverSampler
 
 st.markdown("<h1 style='text-align: center; color: green;'>PACP Prediction</h1>", unsafe_allow_html=True)
 
-#st.write("""
-# PACP Prediction App """)
-
 st.write("""
 ## Enter pipe details below:
 """)
-    
+
 a = st.number_input(' Age: ', min_value=0)
 l = st.number_input(" Length: ", min_value=0)
 s = st.number_input(" Slope: ", min_value=0.000)
@@ -40,7 +33,7 @@ df_sub = pd.read_csv('subarea.csv')
 df_sub.head()
 df_map = pd.read_csv('mapsco.csv')
 df_map.head()
-    
+
 sub = df_sub.loc[df_sub['SUBAREA'] == suba, 'SUBAREA_Encoded']
 maps = df_map.loc[df_map['MAPSCOGRID'] == mapsc, 'MAPSCOGRID_Encoded']
     
